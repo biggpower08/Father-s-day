@@ -1,6 +1,7 @@
 const WIDTH = 1100;
 const HEIGHT = 760;
 const TEAL = "#147f83";
+const WHITE = "#ffffff";
 const RED = "#ec3434";
 const BLUE = "#184fd4";
 
@@ -118,7 +119,7 @@ class Turtle {
       drawCtx.lineJoin = "round";
       drawCtx.strokeStyle = this.color;
       drawCtx.lineWidth = Math.max(5, size * 0.11);
-      drawCtx.fillStyle = TEAL;
+      drawCtx.fillStyle = WHITE;
       drawCtx.globalAlpha = progress;
       drawCtx.strokeText(text, x, y);
       drawCtx.fillText(text, x, y);
@@ -169,7 +170,7 @@ function setupCanvas(canvas, context) {
 
 function clearDrawing() {
   drawCtx.clearRect(0, 0, WIDTH, HEIGHT);
-  drawCtx.fillStyle = TEAL;
+  drawCtx.fillStyle = WHITE;
   drawCtx.fillRect(0, 0, WIDTH, HEIGHT);
 }
 
@@ -253,218 +254,331 @@ async function drawHeart(turtle, cx, cy, size) {
 }
 
 async function drawRedLayer() {
-  redTurtle.lineWidth = 6;
-  await redTurtle.bubbleText("HAPPY", 550, 72, 78, 850);
-  await redTurtle.bubbleText("BIRTHDAY", 550, 150, 70, 950);
-  await redTurtle.bubbleText("DAD", 550, 226, 82, 800);
+  redTurtle.lineWidth = 7;
+  await redTurtle.bubbleText("HAPPY", 550, 62, 82, 850);
+  await redTurtle.bubbleText("BIRTHDAY", 550, 145, 74, 950);
+  await redTurtle.bubbleText("DAD", 550, 232, 92, 800);
 
   redTurtle.lineWidth = 4;
-  await drawHeart(redTurtle, 170, 128, 3.2);
-  await drawHeart(redTurtle, 930, 130, 3);
+  await drawHeart(redTurtle, 173, 92, 3.7);
+  await drawHeart(redTurtle, 930, 92, 3.4);
+  await drawHeart(redTurtle, 344, 250, 2.4);
+  await drawHeart(redTurtle, 765, 247, 2.2);
   await redTurtle.polyline(
     [
-      [235, 70],
-      [207, 50],
-      [226, 92],
-      [190, 92],
+      [220, 140],
+      [185, 118],
+      [222, 164],
+      [180, 162],
     ],
     120,
   );
   await redTurtle.polyline(
     [
-      [880, 70],
-      [910, 48],
-      [890, 92],
-      [928, 92],
+      [888, 140],
+      [925, 118],
+      [886, 164],
+      [930, 162],
     ],
     120,
   );
 }
 
 async function drawBlueLayer() {
-  blueTurtle.lineWidth = 5;
+  blueTurtle.lineWidth = 3.2;
 
-  await blueTurtle.polyline(
-    [
-      [85, 628],
-      [168, 590],
-      [265, 612],
-      [365, 585],
-      [492, 620],
-      [632, 596],
-      [766, 624],
-      [908, 592],
-      [1015, 628],
-    ],
-    170,
-  );
-  await blueTurtle.polyline(
-    [
-      [110, 662],
-      [254, 638],
-      [396, 660],
-      [544, 636],
-      [710, 664],
-      [870, 642],
-      [1015, 668],
-    ],
-    150,
-  );
-
-  await drawFather();
-  await drawSon();
-
-  blueTurtle.lineWidth = 4;
-  await blueTurtle.polyline(
-    [
-      [95, 442],
-      [205, 380],
-      [292, 410],
-      [392, 338],
-      [502, 388],
-      [610, 320],
-      [745, 394],
-      [855, 348],
-      [1010, 412],
-    ],
-    130,
-  );
-  await blueTurtle.polyline(
-    [
-      [75, 484],
-      [212, 450],
-      [330, 472],
-      [470, 432],
-      [610, 460],
-      [756, 426],
-      [914, 476],
-      [1030, 444],
-    ],
-    120,
-  );
-
-  await drawCloud(240, 315, 52);
-  await drawCloud(820, 300, 58);
+  await drawCloud(150, 238, 74);
+  await drawCloud(225, 352, 54);
+  await drawCloud(885, 250, 64);
+  await drawCloud(720, 334, 36);
 
   blueTurtle.lineWidth = 3;
-  for (let x = 115; x <= 995; x += 34) {
-    await blueTurtle.polyline(
-      [
-        [x, 536],
-        [x + 14, 500],
-        [x + 28, 536],
-        [x + 5, 520],
-        [x + 23, 520],
-      ],
-      42,
-    );
-  }
+  await blueTurtle.polyline(
+    [
+      [20, 442],
+      [150, 402],
+      [272, 388],
+      [385, 418],
+      [520, 372],
+      [657, 405],
+      [775, 332],
+      [902, 348],
+      [1080, 318],
+    ],
+    115,
+  );
+  await blueTurtle.polyline(
+    [
+      [18, 482],
+      [160, 444],
+      [290, 434],
+      [410, 462],
+      [560, 420],
+      [700, 450],
+      [835, 392],
+      [985, 420],
+      [1090, 388],
+    ],
+    105,
+  );
+
+  blueTurtle.lineWidth = 2.7;
+  await blueTurtle.polyline(
+    [
+      [690, 370],
+      [735, 300],
+      [785, 312],
+      [838, 360],
+      [904, 326],
+      [1015, 360],
+      [1090, 356],
+    ],
+    90,
+  );
+  await blueTurtle.polyline(
+    [
+      [740, 318],
+      [724, 362],
+      [706, 398],
+      [783, 315],
+      [790, 365],
+      [824, 402],
+    ],
+    70,
+  );
+
+  await drawForestTexture();
+
+  blueTurtle.lineWidth = 4;
+  await drawRockLedge();
+  await drawFather();
+  await drawSon();
 }
 
 async function drawFather() {
-  blueTurtle.lineWidth = 6;
-  await blueTurtle.circle(410, 410, 34, 760);
+  blueTurtle.lineWidth = 4.2;
+  await blueTurtle.circle(460, 310, 30, 620);
   await blueTurtle.polyline(
     [
-      [410, 444],
-      [406, 516],
-      [372, 604],
+      [434, 292],
+      [447, 278],
+      [470, 276],
+      [489, 292],
+      [488, 318],
+      [472, 334],
+      [448, 333],
+      [435, 316],
+      [434, 292],
     ],
-    170,
+    64,
+  );
+  blueTurtle.lineWidth = 3.4;
+  await blueTurtle.polyline(
+    [
+      [435, 354],
+      [398, 392],
+      [390, 482],
+      [424, 512],
+      [510, 510],
+      [545, 480],
+      [524, 392],
+      [492, 354],
+      [435, 354],
+    ],
+    84,
   );
   await blueTurtle.polyline(
     [
-      [406, 516],
-      [445, 604],
+      [412, 400],
+      [440, 455],
+      [466, 494],
+      [496, 450],
+      [508, 400],
     ],
-    170,
+    78,
   );
   await blueTurtle.polyline(
     [
-      [407, 468],
-      [350, 512],
+      [430, 510],
+      [420, 604],
+      [402, 710],
+      [446, 710],
+      [464, 608],
+      [486, 710],
+      [530, 710],
+      [512, 606],
+      [506, 510],
     ],
-    150,
+    86,
   );
   await blueTurtle.polyline(
     [
-      [407, 468],
-      [474, 510],
+      [420, 720],
+      [446, 720],
+      [456, 708],
+      [406, 708],
+      [530, 720],
+      [486, 720],
+      [478, 708],
+      [538, 708],
     ],
-    150,
+    60,
   );
-  blueTurtle.lineWidth = 3.5;
-  await blueTurtle.polyline(
-    [
-      [393, 410],
-      [404, 417],
-      [421, 410],
-    ],
-    80,
-  );
+  await blueTurtle.polyline([[448, 310], [457, 315], [472, 310]], 45);
+  await blueTurtle.polyline([[450, 332], [462, 338], [478, 332]], 45);
 }
 
 async function drawSon() {
-  blueTurtle.lineWidth = 6;
-  await blueTurtle.circle(604, 430, 27, 660);
+  blueTurtle.lineWidth = 4.2;
+  await blueTurtle.circle(595, 320, 28, 620);
   await blueTurtle.polyline(
     [
-      [604, 457],
-      [606, 542],
-      [566, 620],
+      [570, 300],
+      [582, 286],
+      [606, 286],
+      [622, 302],
+      [621, 326],
+      [606, 342],
+      [582, 340],
+      [569, 324],
+      [570, 300],
     ],
-    160,
+    64,
+  );
+  blueTurtle.lineWidth = 3.4;
+  await blueTurtle.polyline(
+    [
+      [545, 362],
+      [528, 420],
+      [540, 494],
+      [642, 494],
+      [656, 420],
+      [638, 362],
+      [545, 362],
+    ],
+    82,
   );
   await blueTurtle.polyline(
     [
-      [606, 542],
-      [650, 620],
+      [540, 416],
+      [586, 456],
+      [654, 420],
     ],
-    160,
+    86,
   );
   await blueTurtle.polyline(
     [
-      [568, 490],
-      [642, 518],
+      [650, 416],
+      [598, 456],
+      [534, 425],
     ],
-    170,
+    86,
   );
   await blueTurtle.polyline(
     [
-      [646, 490],
-      [560, 520],
+      [558, 494],
+      [552, 596],
+      [522, 720],
+      [570, 720],
+      [592, 598],
+      [616, 720],
+      [666, 720],
+      [638, 596],
+      [626, 494],
     ],
-    170,
-  );
-  blueTurtle.lineWidth = 3.5;
-  await blueTurtle.polyline(
-    [
-      [591, 431],
-      [603, 438],
-      [616, 431],
-    ],
-    80,
+    88,
   );
   await blueTurtle.polyline(
     [
-      [580, 474],
-      [628, 474],
+      [530, 730],
+      [570, 730],
+      [582, 718],
+      [520, 718],
+      [666, 730],
+      [616, 730],
+      [606, 718],
+      [682, 718],
     ],
-    80,
+    60,
   );
+  await blueTurtle.polyline([[582, 320], [594, 326], [608, 320]], 45);
+  await blueTurtle.polyline([[584, 342], [596, 347], [610, 342]], 45);
 }
 
 async function drawCloud(cx, cy, size) {
-  await blueTurtle.circle(cx - size * 0.5, cy, size * 0.32, 360, Math.PI, Math.PI * 2);
-  await blueTurtle.circle(cx, cy - size * 0.1, size * 0.42, 420, Math.PI, Math.PI * 2);
-  await blueTurtle.circle(cx + size * 0.55, cy, size * 0.34, 360, Math.PI, Math.PI * 2);
+  const points = [];
+  const lobes = [
+    [-0.9, 0.1, 0.34],
+    [-0.52, -0.18, 0.42],
+    [-0.1, -0.28, 0.5],
+    [0.38, -0.18, 0.42],
+    [0.78, 0.05, 0.36],
+  ];
+  lobes.forEach(([ox, oy, radius], index) => {
+    for (let i = 0; i <= 10; i += 1) {
+      const angle = Math.PI + (Math.PI * i) / 10;
+      points.push([
+        cx + ox * size + Math.cos(angle) * radius * size,
+        cy + oy * size + Math.sin(angle) * radius * size,
+      ]);
+    }
+    if (index < lobes.length - 1) {
+      const next = lobes[index + 1];
+      points.push([cx + next[0] * size - next[2] * size, cy + next[1] * size]);
+    }
+  });
+  points.push([cx + size * 1.08, cy + size * 0.12], [cx - size * 1.05, cy + size * 0.18]);
+  await blueTurtle.polyline(points, 32);
+}
+
+async function drawForestTexture() {
+  blueTurtle.lineWidth = 2.2;
+  for (let row = 0; row < 5; row += 1) {
+    const y = 494 + row * 42;
+    const offset = row % 2 ? 18 : 0;
+    for (let x = 40 + offset; x <= 1060; x += 38) {
+      await blueTurtle.polyline(
+        [
+          [x, y + 24],
+          [x + 10, y],
+          [x + 20, y + 24],
+          [x + 5, y + 14],
+          [x + 17, y + 14],
+        ],
+        18,
+      );
+    }
+  }
+}
+
+async function drawRockLedge() {
+  blueTurtle.lineWidth = 3;
   await blueTurtle.polyline(
     [
-      [cx - size * 0.9, cy],
-      [cx + size * 0.92, cy],
+      [48, 705],
+      [90, 590],
+      [180, 572],
+      [260, 604],
+      [354, 610],
+      [470, 646],
+      [620, 630],
+      [792, 654],
+      [930, 646],
+      [1010, 690],
     ],
-    120,
+    78,
   );
+  const cracks = [
+    [[78, 690], [118, 652], [142, 612]],
+    [[154, 592], [206, 618], [270, 620]],
+    [[260, 646], [300, 616], [342, 612]],
+    [[410, 666], [446, 638], [480, 648]],
+    [[708, 658], [746, 630], [782, 648]],
+    [[840, 680], [878, 650], [922, 658]],
+  ];
+  for (const crack of cracks) {
+    await blueTurtle.polyline(crack, 48);
+  }
 }
 
 async function runAnimation() {
@@ -473,7 +587,7 @@ async function runAnimation() {
   clearDrawing();
 
   redTurtle = new Turtle(RED, 120, 70, 0);
-  blueTurtle = new Turtle(BLUE, 120, 650, 0);
+  blueTurtle = new Turtle(BLUE, 60, 250, 0);
   renderCursors();
 
   await drawRedLayer();

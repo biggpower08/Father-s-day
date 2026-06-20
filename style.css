@@ -1,7 +1,7 @@
 :root {
   --teal: #147f83;
   --teal-deep: #0d676b;
-  --paper: rgba(235, 255, 252, 0.1);
+  --paper: #ffffff;
   --red: #ec3434;
   --blue: #184fd4;
   font-family:
@@ -85,7 +85,7 @@ body {
   position: relative;
   width: min(96vw, 1100px);
   aspect-ratio: 55 / 38;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 3px solid rgba(255, 255, 255, 0.72);
   border-radius: 8px;
   background: var(--paper);
   box-shadow: 0 28px 80px rgba(0, 45, 48, 0.24);
