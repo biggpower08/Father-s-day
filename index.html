@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Dad</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro" id="intro" aria-label="Start birthday animation">
+        <button class="play-button" id="playButton" type="button">Play</button>
+      </section>
+
+      <section class="stage" id="stage" aria-label="Animated birthday turtle drawing" hidden>
+        <div class="canvas-wrap">
+          <canvas id="drawingCanvas" width="1100" height="760"></canvas>
+          <canvas id="cursorCanvas" width="1100" height="760"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
