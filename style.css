@@ -21,27 +21,33 @@ html,
 body {
   width: 100%;
   min-width: 320px;
-  min-height: 100%;
+  height: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
-  min-height: 100vh;
   background: var(--teal);
 }
 
-.app-shell,
-.intro,
-.stage {
-  min-height: 100vh;
+.app-shell {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.intro {
+#start-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
   display: grid;
   place-items: center;
   padding: 24px;
   background: var(--teal);
+}
+
+#start-screen[hidden] {
+  display: none;
 }
 
 .play-button {
@@ -70,20 +76,25 @@ body {
   outline: none;
 }
 
-.stage {
+#drawing-screen {
+  width: 100vw;
+  height: 100vh;
   display: grid;
   place-items: center;
-  padding: clamp(10px, 3vw, 28px);
+  padding: clamp(8px, 2vmin, 22px);
   background: var(--teal);
+  overflow: hidden;
 }
 
-.stage[hidden] {
+#drawing-screen[hidden] {
   display: none;
 }
 
 .canvas-wrap {
   position: relative;
-  width: min(96vw, 1100px);
+  width: min(96vw, calc((100vh - 28px) * 1.447));
+  max-width: 1100px;
+  max-height: calc(100vh - 28px);
   aspect-ratio: 55 / 38;
   border: 3px solid rgba(255, 255, 255, 0.72);
   border-radius: 8px;
