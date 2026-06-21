@@ -15,12 +15,14 @@ const drawingScreen = document.querySelector("#drawing-screen");
 const playButton = document.querySelector("#playButton");
 const drawingCanvas = document.querySelector("#drawingCanvas");
 const cursorCanvas = document.querySelector("#cursorCanvas");
+const referencePhotoOverlay = document.querySelector("#reference-photo-overlay");
 const drawCtx = drawingCanvas.getContext("2d");
 const cursorCtx = cursorCanvas.getContext("2d");
 
 let redTurtle;
 let blueTurtle;
 let animationStarted = false;
+let overlayFadeTimer = null;
 
 class Turtle {
   constructor(color, x, y, heading = 0) {
@@ -519,6 +521,7 @@ async function drawRockLedge() {
 async function runAnimation() {
   setupCanvas(drawingCanvas, drawCtx);
   setupCanvas(cursorCanvas, cursorCtx);
+  referencePhotoOverlay.classList.remove("visible");
   clearDrawing();
 
   redTurtle = new Turtle(RED, 120, 70, 0);
@@ -533,11 +536,18 @@ async function runAnimation() {
     blueTurtle.moveTo(70, 712, { duration: 520 }),
   ]);
   renderCursors();
+
+  overlayFadeTimer = window.setTimeout(() => {
+    referencePhotoOverlay.classList.add("visible");
+  }, 10000);
 }
 
 playButton.addEventListener("click", async () => {
   if (animationStarted) return;
   animationStarted = true;
+  if (overlayFadeTimer) {
+    window.clearTimeout(overlayFadeTimer);
+  }
   window.scrollTo(0, 0);
   document.body.classList.add("drawing-active");
   startScreen.hidden = true;

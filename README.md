@@ -35,7 +35,7 @@ The blue turtle draws:
 - clouds
 - forest texture
 
-The original father-and-son reference photo is displayed beneath the animated drawing after Play is clicked.
+The original father-and-son reference photo fades in as a transparent overlay on top of the animated drawing 10 seconds after the turtle animation finishes.
 
 The turtle cursors are custom canvas drawings shaped to resemble the classic Python `import turtle` turtle cursor.
 

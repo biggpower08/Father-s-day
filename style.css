@@ -31,9 +31,8 @@ body {
 }
 
 body.drawing-active {
-  height: auto;
-  min-height: 100%;
-  overflow-y: auto;
+  height: 100%;
+  overflow: hidden;
 }
 
 .app-shell {
@@ -90,13 +89,12 @@ body.drawing-active .app-shell {
 
 #drawing-screen {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
-  grid-template-rows: auto auto;
   place-items: center;
-  gap: clamp(24px, 4vw, 42px);
-  padding: clamp(8px, 2vmin, 22px) clamp(12px, 3vw, 28px) clamp(34px, 6vw, 64px);
+  padding: clamp(8px, 2vmin, 22px);
   background: var(--teal);
+  overflow: hidden;
 }
 
 #drawing-screen[hidden] {
@@ -125,36 +123,29 @@ canvas {
 }
 
 #cursorCanvas {
+  z-index: 2;
   pointer-events: none;
 }
 
-#photo-section {
-  width: min(96vw, 980px);
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-  padding: clamp(14px, 2.5vw, 22px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 18px 54px rgba(0, 45, 48, 0.18);
+#drawingCanvas {
+  z-index: 1;
 }
 
-#photo-title {
-  margin: 0;
-  color: white;
-  font-size: clamp(1rem, 2.3vw, 1.35rem);
-  letter-spacing: 0;
-}
-
-#reference-photo {
+#reference-photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
   display: block;
   width: 100%;
-  max-height: 82vh;
-  border: 3px solid rgba(255, 255, 255, 0.78);
-  border-radius: 8px;
-  background: white;
+  height: 100%;
+  opacity: 0;
   object-fit: contain;
+  pointer-events: none;
+  transition: opacity 4s ease;
+}
+
+#reference-photo-overlay.visible {
+  opacity: 0.84;
 }
 
 @media (max-width: 640px) {
