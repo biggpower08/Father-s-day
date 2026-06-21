@@ -281,7 +281,7 @@ async function drawHeart(turtle, cx, cy, size) {
 async function drawRedLayer() {
   redTurtle.lineWidth = 7;
   await redTurtle.bubbleText("HAPPY", 550, 62, 82, 850);
-  await redTurtle.bubbleText("BIRTHDAY", 550, 145, 74, 950);
+  await redTurtle.bubbleText("FATHER'S DAY", 550, 145, 66, 950);
   await redTurtle.bubbleText("DAD", 550, 232, 92, 800);
 
   redTurtle.lineWidth = 4;
@@ -539,6 +539,7 @@ playButton.addEventListener("click", async () => {
   if (animationStarted) return;
   animationStarted = true;
   window.scrollTo(0, 0);
+  document.body.classList.add("drawing-active");
   startScreen.hidden = true;
   drawingScreen.hidden = false;
   await runAnimation();

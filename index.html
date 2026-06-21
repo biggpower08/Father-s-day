@@ -3,20 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday Dad</title>
+    <title>Happy Father's Day Dad</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="app-shell">
-      <section id="start-screen" aria-label="Start birthday animation">
+      <section id="start-screen" aria-label="Start Father's Day animation">
         <button class="play-button" id="playButton" type="button">Play</button>
       </section>
 
-      <section id="drawing-screen" aria-label="Animated birthday turtle drawing" hidden>
+      <section id="drawing-screen" aria-label="Animated Father's Day turtle drawing" hidden>
         <div class="canvas-wrap">
           <canvas id="drawingCanvas" width="1100" height="760"></canvas>
           <canvas id="cursorCanvas" width="1100" height="760"></canvas>
         </div>
+
+        <section id="photo-section" aria-labelledby="photo-title">
+          <h2 id="photo-title">Original photo</h2>
+          <img
+            id="reference-photo"
+            src="assets/father-son-reference.png"
+            alt="Original father and son mountain overlook reference photo"
+          />
+        </section>
       </section>
     </main>
 

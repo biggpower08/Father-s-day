@@ -30,10 +30,22 @@ body {
   background: var(--teal);
 }
 
+body.drawing-active {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
 .app-shell {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+body.drawing-active .app-shell {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
 }
 
 #start-screen {
@@ -78,12 +90,13 @@ body {
 
 #drawing-screen {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
+  grid-template-rows: auto auto;
   place-items: center;
-  padding: clamp(8px, 2vmin, 22px);
+  gap: clamp(24px, 4vw, 42px);
+  padding: clamp(8px, 2vmin, 22px) clamp(12px, 3vw, 28px) clamp(34px, 6vw, 64px);
   background: var(--teal);
-  overflow: hidden;
 }
 
 #drawing-screen[hidden] {
@@ -92,9 +105,9 @@ body {
 
 .canvas-wrap {
   position: relative;
-  width: min(96vw, calc((100vh - 28px) * 1.447));
+  width: min(96vw, calc((100vh - 40px) * 1.447));
   max-width: 1100px;
-  max-height: calc(100vh - 28px);
+  max-height: calc(100vh - 40px);
   aspect-ratio: 55 / 38;
   border: 3px solid rgba(255, 255, 255, 0.72);
   border-radius: 8px;
@@ -113,6 +126,35 @@ canvas {
 
 #cursorCanvas {
   pointer-events: none;
+}
+
+#photo-section {
+  width: min(96vw, 980px);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: clamp(14px, 2.5vw, 22px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 54px rgba(0, 45, 48, 0.18);
+}
+
+#photo-title {
+  margin: 0;
+  color: white;
+  font-size: clamp(1rem, 2.3vw, 1.35rem);
+  letter-spacing: 0;
+}
+
+#reference-photo {
+  display: block;
+  width: 100%;
+  max-height: 82vh;
+  border: 3px solid rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  background: white;
+  object-fit: contain;
 }
 
 @media (max-width: 640px) {

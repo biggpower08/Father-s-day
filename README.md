@@ -1,6 +1,6 @@
-# Happy Birthday Dad Turtle Animation
+# Happy Father's Day Dad Turtle Animation
 
-A tiny GitHub Pages-ready birthday card from Caleb. It opens to a teal screen with a centered Play button, then animates a turtle-graphics-style canvas drawing with two visible turtles: one red and one blue.
+A tiny GitHub Pages-ready Father's Day card from Caleb. It opens to a teal screen with a centered Play button, then animates a turtle-graphics-style canvas drawing with two visible turtles: one red and one blue.
 
 The drawing is implemented with plain HTML, CSS, and JavaScript. GitHub Pages is static, so the browser version recreates turtle-style drawing on an HTML canvas instead of running Python turtle in the page.
 
@@ -23,7 +23,7 @@ No npm install, build step, backend, or external library is required.
 
 The red turtle draws:
 
-- `HAPPY BIRTHDAY DAD`
+- `HAPPY FATHER'S DAY DAD`
 - hearts
 - small accent marks
 
@@ -34,6 +34,8 @@ The blue turtle draws:
 - mountain ridges
 - clouds
 - forest texture
+
+The original father-and-son reference photo is displayed beneath the animated drawing after Play is clicked.
 
 The turtle cursors are custom canvas drawings shaped to resemble the classic Python `import turtle` turtle cursor.
 
